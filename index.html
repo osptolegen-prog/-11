@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>توقعات الذكاء الاصطناعي - تونس</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .loading-screen {
+      background: #000;
+      color: #00ff88;
+      font-family: monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      flex-direction: column;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+<!-- Loading -->
+<div id="loading" class="loading-screen">
+  <p class="text-lg">جاري التحميل... يرجى الانتظار</p>
+</div>
+
+<!-- Main -->
+<div id="main" class="hidden">
+
+  <header class="bg-gray-800 p-4 flex justify-between items-center">
+    <h1 class="text-green-400 font-bold text-lg">
+      توقعات الذكاء الاصطناعي - تونس
+    </h1>
+    <nav class="space-x-4 space-x-reverse">
+      <a href="#how" class="hover:text-green-400">كيف يعمل</a>
+      <a href="#start" class="hover:text-green-400">ابدأ</a>
+    </nav>
+  </header>
+
+  <section id="start" class="min-h-screen flex flex-col items-center justify-center text-center px-4">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6">
+      اربح باستخدام تنبؤات الذكاء الاصطناعي 🎯
+    </h2>
+
+    <p class="max-w-xl mb-6 text-gray-300">
+      تنبؤات Aviator و Mines بدقة عالية وإشارات فورية للاعبين في تونس.
+    </p>
+
+    <input
+      id="userId"
+      type="text"
+      placeholder="أدخل معرفك على Legionwin"
+      class="bg-gray-700 p-3 rounded-lg text-center mb-4 w-72"
+    />
+
+    <button
+      id="connectBtn"
+      class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-xl font-bold"
+    >
+      توصيل الحساب
+    </button>
+
+    <!-- Success -->
+    <div id="successBox" class="hidden mt-6 text-green-400 font-bold">
+      <p>✅ تم توصيل الحساب: <span id="shownId"></span></p>
+      <button
+        id="signalBtn"
+        class="mt-4 bg-green-500 hover:bg-green-600 px-6 py-2 rounded-xl text-white"
+      >
+        تلقي إشارة 🔔
+      </button>
+    </div>
+
+    <!-- Deposit -->
+    <div id="depositBox" class="hidden mt-6 bg-red-600 p-6 rounded-xl max-w-md">
+      <h3 class="text-xl font-bold mb-2">⚠️ لا يوجد إيداع</h3>
+      <p class="mb-4">
+        يجب الإيداع بمبلغ <b>15 TND</b> أو أكثر لتلقي الإشارات.
+      </p>
+      <a
+        href="https://reffpa.com/L?tag=d_4651782m_97c__[]general[]"
+        target="_blank"
+        class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold"
+      >
+        الإيداع الآن 💰
+      </a>
+    </div>
+  </section>
+
+  <section id="how" class="bg-gray-800 py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">كيف يعمل</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-green-400 font-bold mb-2">1. أدخل معرفك</h3>
+          <p>أدخل معرف حسابك على Legionwin</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-green-400 font-bold mb-2">2. توصيل الحساب</h3>
+          <p>يتم التحقق تلقائيًا</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-green-400 font-bold mb-2">3. تلقي الإشارات</h3>
+          <p>إشارات فورية بدقة عالية</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-gray-500 text-sm py-6">
+    © 2025 AI Predictions Tunisia
+  </footer>
+
+</div>
+
+<script>
+  // Loading screen
+  setTimeout(() => {
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("main").classList.remove("hidden");
+  }, 2000);
+
+  const connectBtn = document.getElementById("connectBtn");
+  const userIdInput = document.getElementById("userId");
+  const successBox = document.getElementById("successBox");
+  const shownId = document.getElementById("shownId");
+  const signalBtn = document.getElementById("signalBtn");
+  const depositBox = document.getElementById("depositBox");
+
+  connectBtn.onclick = () => {
+    const id = userIdInput.value.trim();
+    if (id.length >= 5) {
+      shownId.textContent = id;
+      successBox.classList.remove("hidden");
+      depositBox.classList.add("hidden");
+    }
+  };
+
+  signalBtn.onclick = () => {
+    depositBox.classList.remove("hidden");
+  };
+</script>
+
+</body>
+</html>
